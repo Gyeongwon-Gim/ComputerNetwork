@@ -3,13 +3,12 @@ import socket
 
 # In this Line we define our local host
 # address with port number
-SERVER = socket.gethostbyname(socket.gethostname())
-serverPORT = 5050
+LOCALHOST = socket.gethostbyname(socket.gethostname())
+MAIN_SERVER_PORT = 5050
 # Making a socket instance
-client = socket.socket(socket.AF_INET,
-					socket.SOCK_STREAM)
+client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # connect to the server
-client.connect((SERVER, serverPORT))
+client.connect((LOCALHOST, MAIN_SERVER_PORT))
 # Running a infinite loop
 while True:
 	print("Example : 4 + 5")
