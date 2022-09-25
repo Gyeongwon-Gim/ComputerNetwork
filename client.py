@@ -5,7 +5,9 @@ import socket
 # address with port number
 LOCALHOST = socket.gethostbyname(socket.gethostname())
 MAIN_SERVER_PORT = 5050
-# Making a socket instance
+FORMAT = 'utf-8'
+
+#TCP 소켓 생성
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # connect to the server
 client.connect((LOCALHOST, MAIN_SERVER_PORT))
@@ -21,11 +23,11 @@ the form opreand operator oprenad: ")
 		break
 	# Here we send the user input
 	# to server socket by send Method
-	client.send(inp.encode())
+	client.send(inp.encode(FORMAT))
 
 	# Here we received output from the server socket
 	answer = client.recv(1024)
-	print("Answer is "+answer.decode())
+	print("Answer is "+answer.decode(FORMAT))
 	print("Type 'Over' to terminate")
 
 client.close()
