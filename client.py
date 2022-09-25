@@ -1,8 +1,6 @@
-# Import socket module
 import socket
 
-# In this Line we define our local host
-# address with port number
+# use localhost ip address with port number
 LOCALHOST = socket.gethostbyname(socket.gethostname())
 MAIN_SERVER_PORT = 5050
 FORMAT = 'utf-8'

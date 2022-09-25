@@ -1,12 +1,13 @@
 import socket
 
+# use localhost ip address with port number
+LOCALHOST = socket.gethostbyname(socket.gethostname())
 ADD_SUB_SERVER_PORT = 5051
 MUL_DIV_SERVER_PORT = 5052
 MAIN_SERVER_PORT = 5050
-LOCALHOST = socket.gethostbyname(socket.gethostname())
 FORMAT = 'utf-8'
 
-#TCP 소켓 생성
+#create TCP socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind((LOCALHOST, MAIN_SERVER_PORT))
@@ -31,8 +32,9 @@ def send(exp):
 
     return_msg = client_socket.recv(1024).decode(FORMAT)
     print(return_msg)
-    return return_msg   
+    return return_msg
 
+# server bigins listening for incoming TCP requests
 server.listen()
 print(f"Main server is listening")
 
